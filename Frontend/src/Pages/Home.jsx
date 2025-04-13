@@ -47,7 +47,7 @@ function Home() {
           English
         </button>
       </div>) : (
-        <Start/>
+        <Start subject={value}/>
       )}
     </>
   );
