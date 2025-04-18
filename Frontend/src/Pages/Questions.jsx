@@ -1,4 +1,17 @@
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "./Home";
+
 function Questions() {
+  const value = useContext(UserContext);
+  const [data,setData] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/questions')
+    .then((res) => res.json())
+    .then((data) => setData(data[0]))
+    .catch((error) => console.error(error));
+  }, []);
+
   const question = {
     text: "1. What is the capital of France?",
     options: ["Berlin", "Madrid", "Paris", "Lisbon"],
@@ -7,8 +20,10 @@ function Questions() {
 
   return (
     <div className="p-4 max-w-md mx-auto">
+      
       <h1 className="text-xl font-bold mb-4">Select most suitable answer.</h1>
-      <p className="mb-4">{question.text}</p>
+      {value}
+      <p className="mb-4">{data.question_text}</p>
       <div>
         {question.options.map((options, index) => (
           <div key={index} className="mb-2">
