@@ -6,14 +6,14 @@ import { UserContext } from './Pages/Home';
 import { useState } from 'react';
 
 function App() {
-  const [value, setValue] = useState("");
+  const [subjectId, setSubjectId] = useState("");
   
   return (
    <>
-  <UserContext.Provider value={value}>
+  <UserContext.Provider value={subjectId}>
    <Router>
     <Routes>
-      <Route path='/' element={<Home value={value} setValue={setValue}/>}></Route>
+      <Route path='/' element={<Home value={subjectId} setValue={setSubjectId}/>}></Route>
       <Route path='/start' element={<Start/>}></Route>
       <Route path='/Questions' element={<Questions/>}></Route>
     </Routes>
