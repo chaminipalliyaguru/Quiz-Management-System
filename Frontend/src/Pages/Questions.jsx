@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "./Home";
 import { useNavigate } from "react-router-dom";
+import Answer from "./Answer";
 
 
 function Questions() {
@@ -9,12 +10,15 @@ function Questions() {
   const [answers,setAnswers] = useState([]);
   const navigate = useNavigate();
 
-  const handlChange = (ans) => {
-    setAnswers(ans);
+  const handleChange = (questionId, selectedOptionId) => {
+    setAnswers((prev) => ({
+      ...prev,
+      [questionId]: selectedOptionId
+    }));
   };
 
   const submit = () => {
-    navigate("/answer")
+    navigate("/answer", { state: { answers } });
   }
 
   useEffect(() => {
@@ -52,7 +56,7 @@ function Questions() {
                 <input
                   type="radio"
                   name={`question-${que.question_id}`}
-                  value={opt.option_text} onClick={()=> handlChange(opt.option_id)}
+                  value={opt.option_text} onChange={() => handleChange(que.question_text, opt.option_text)}
                 />
                 <span>{opt.option_text}</span>
               </label>
