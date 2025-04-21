@@ -54,6 +54,7 @@ import { useNavigate } from "react-router-dom";
 export const UserContext = createContext(null);
 
 function Home({ value, setValue }) {
+  
   const [subject, setSubject] = useState([]);
   const navigate = useNavigate();
   const colors = [

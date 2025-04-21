@@ -1,9 +1,21 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "./Home";
+import { useNavigate } from "react-router-dom";
+
 
 function Questions() {
   const value = useContext(UserContext);
   const [questions, setQuestions] = useState([]);
+  const [answers,setAnswers] = useState([]);
+  const navigate = useNavigate();
+
+  const handlChange = (ans) => {
+    setAnswers(ans);
+  };
+
+  const submit = () => {
+    navigate("/answer")
+  }
 
   useEffect(() => {
     fetch(`http://localhost:3000/questions?subject_id=${value}`)
@@ -40,16 +52,17 @@ function Questions() {
                 <input
                   type="radio"
                   name={`question-${que.question_id}`}
-                  value={opt.option_text}
+                  value={opt.option_text} onClick={()=> handlChange(opt.option_id)}
                 />
                 <span>{opt.option_text}</span>
               </label>
             </div>
           ))}
+          
         </div>
       ))}
 
-      <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
+      <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded" onClick={submit}>
         Submit
       </button>
     </div>
