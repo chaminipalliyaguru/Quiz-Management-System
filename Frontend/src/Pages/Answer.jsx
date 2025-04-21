@@ -12,7 +12,9 @@ function Answer() {
   useEffect(() => {
     const fetchQuestionsWithAnswers = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/questions?subject_id=${subjectId}`);
+        const res = await fetch(
+          `http://localhost:3000/questions?subject_id=${subjectId}`
+        );
         const questionsData = await res.json();
 
         const questionPromises = questionsData.map(async (q) => {
@@ -44,22 +46,37 @@ function Answer() {
       {loading ? (
         <p className="text-center text-gray-500">Loading questions...</p>
       ) : (
-        questions.map((q, index) => (
-            
-          <div
-            key={q.question_id}
-            className="mb-6 p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-md"
-          >
-            <p className="font-medium text-lg text-gray-800 mb-2">
-              {index + 1}. {q.question_text}
-            </p>
-            <p className="text-green-700 font-semibold">
-             Select Answer: {answers?.[q.question_text] || "Not available"}</p>
-            <p> ✅ Correct Answer: {q.correctOption.option_text || "Not available"}
+        questions.map((q, index) => {
+          const selectAnswer = answers?.[q.question_text];
+          const correctAnswer = q.correctOption.option_text;
+          const isCorrect = selectAnswer === correctAnswer;
+
+          return (
+            <div
+              key={q.question_id}
+              className="mb-6 p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-md"
+            >
+              <p className="font-medium text-lg text-gray-800 mb-2">
+                {index + 1}. {q.question_text}
               </p>
-              
-          </div>
-        ))
+              <p className="text-blue-700 font-semibold">
+                Select Answer: {answers?.[q.question_text] || "Not available"}
+              </p>
+              <p className="text-red-400">
+                Correct Answer: {q.correctOption.option_text || "Not available"}
+              </p>
+              <p
+                className={`font-bold text-center ${
+                  isCorrect ? "text-green-600" : "text-red-600"
+                }`}
+              >
+                {isCorrect
+                  ? "✅ Answer is correct."
+                  : "❌ Answer is incorrect."}
+              </p>
+            </div>
+          );
+        })
       )}
     </div>
   );
