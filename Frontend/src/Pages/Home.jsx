@@ -37,7 +37,7 @@ function Home({ value, setValue }) {
     <>
       <header className="text-center py-10 px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 drop-shadow-md">
-          Welcome to the Knowledge Measurement Website
+          Welcome to the Knowledge Measurement Website created by chamini
         </h1>
         <p className="text-md sm:text-lg text-gray-600 mt-3">
           Select a subject to begin your quiz
