@@ -25,6 +25,10 @@ This system is ideal for educational institutions, trainers, and individuals loo
 - **MySQL** – Relational database for structured data storage
 - **Sequelize ORM** – Object Relational Mapper for MySQL
 
+### Screenshots
+<img width="1920" height="1080" alt="Screenshot (598)" src="https://github.com/user-attachments/assets/e8dd04e7-80a8-442f-b6dc-5dc440169c7d" />
+<img width="1920" height="1080" alt="Screenshot (599)" src="https://github.com/user-attachments/assets/70953a09-4484-4484-b426-a78bc09bb46c" />
+
 ## Installation
 
 ### Prerequisites
