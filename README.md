@@ -26,8 +26,11 @@ This system is ideal for educational institutions, trainers, and individuals loo
 - **Sequelize ORM** – Object Relational Mapper for MySQL
 
 ### Screenshots
-<img width="1920" height="1080" alt="Screenshot (598)" src="https://github.com/user-attachments/assets/e8dd04e7-80a8-442f-b6dc-5dc440169c7d" />
+<img width="1920" height="1080" alt="Screenshot (620)" src="https://github.com/user-attachments/assets/13fb4818-f7ae-4eb1-804b-f92e30341264" />
+<img width="1920" height="1080" alt="Screenshot (621)" src="https://github.com/user-attachments/assets/14e08702-1c26-4c6a-add4-b3bc42745e04" />
+<img width="1920" height="1080" alt="Screenshot (622)" src="https://github.com/user-attachments/assets/a21aa304-e1f0-48b8-98bf-97d071c96b31" />
 <img width="1920" height="1080" alt="Screenshot (599)" src="https://github.com/user-attachments/assets/70953a09-4484-4484-b426-a78bc09bb46c" />
+<img width="1920" height="1080" alt="Screenshot (624)" src="https://github.com/user-attachments/assets/6b8c9009-7013-40a2-9b55-40eaf4646100" />
 
 ## Installation
 
